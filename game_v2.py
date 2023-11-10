@@ -15,15 +15,17 @@ def random_predict(number:int=1) -> int:
     count = 0
 
     predict_number = np.random.randint(range_from, range_to) # предполагаемое число
-
+    # цикл для проверки угадывания
     while True:
         count += 1
+        # в условиях ниже переопределяем границы, если не попали или заканчиваем цикл
         if number < predict_number:
             range_to = predict_number
         elif number > predict_number:
             range_from = predict_number
         elif number == predict_number:
             break # выход из цикла, если угадали
+        # выбор случайно числа из нового промежутка
         predict_number = np.random.randint(range_from, range_to)
     return(count)
 
